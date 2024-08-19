@@ -141,7 +141,7 @@ elif [ "$1" = "jobmanager" ]; then
     args=("${args[@]:1}")
 
     echo "Starting Job Manager"
-
+	try_download_iplib
     exec $(drop_privs_cmd) "$FLINK_HOME/bin/jobmanager.sh" start-foreground "${args[@]}"
 elif [ "$1" = ${COMMAND_STANDALONE} ]; then
     args=("${args[@]:1}")
@@ -169,7 +169,7 @@ elif [ "$1" = "taskmanager" ]; then
     args=("${args[@]:1}")
 
     echo "Starting Task Manager"
-
+	try_download_iplib
     exec $(drop_privs_cmd) "$FLINK_HOME/bin/taskmanager.sh" start-foreground "${args[@]}"
 fi
 
